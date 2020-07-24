@@ -12,9 +12,9 @@ import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
 
-import com.patrickbahr.image.compression.ImageCompression;
+import com.patrickbahr.image.compression.ImageCompressor;
 
-public final class JPEGImageCompression implements ImageCompression {
+public final class JPEGImageCompressor implements ImageCompressor {
 
 	private final static float DEFAULT_COMPRESSION_QUALITY = .75f;
 
@@ -105,6 +105,8 @@ public final class JPEGImageCompression implements ImageCompression {
 			writer.dispose();
 
 			return out.toByteArray();
+		} catch(Exception e) {
+			throw new IOException();
 		}
 	}
 	
